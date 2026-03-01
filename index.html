@@ -728,6 +728,14 @@
             overflow: hidden;
             transition: transform 0.3s;
             border: 1px solid #fbff1e;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+        .ai-assistant.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
         }
         .ai-assistant.minimized {
             transform: translateY(calc(100% - 65px));
@@ -1209,6 +1217,10 @@
                 particle.style.animationDelay = Math.random() * 5 + 's';
                 document.querySelector('.hero-3d')?.appendChild(particle);
             }
+
+            setTimeout(() => {
+                assistant.classList.add('visible');
+            }, 7000);
         })();
     </script>
 </body>
